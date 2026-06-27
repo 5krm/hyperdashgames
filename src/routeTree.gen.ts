@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as ShopRouteImport } from './routes/shop'
+import { Route as CasinoRouteImport } from './routes/casino'
 import { Route as AchievementsRouteImport } from './routes/achievements'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as GameIdRouteImport } from './routes/game.$id'
@@ -17,6 +18,11 @@ import { Route as GameIdRouteImport } from './routes/game.$id'
 const ShopRoute = ShopRouteImport.update({
   id: '/shop',
   path: '/shop',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CasinoRoute = CasinoRouteImport.update({
+  id: '/casino',
+  path: '/casino',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AchievementsRoute = AchievementsRouteImport.update({
@@ -38,12 +44,14 @@ const GameIdRoute = GameIdRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/achievements': typeof AchievementsRoute
+  '/casino': typeof CasinoRoute
   '/shop': typeof ShopRoute
   '/game/$id': typeof GameIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/achievements': typeof AchievementsRoute
+  '/casino': typeof CasinoRoute
   '/shop': typeof ShopRoute
   '/game/$id': typeof GameIdRoute
 }
@@ -51,20 +59,22 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/achievements': typeof AchievementsRoute
+  '/casino': typeof CasinoRoute
   '/shop': typeof ShopRoute
   '/game/$id': typeof GameIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/achievements' | '/shop' | '/game/$id'
+  fullPaths: '/' | '/achievements' | '/casino' | '/shop' | '/game/$id'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/achievements' | '/shop' | '/game/$id'
-  id: '__root__' | '/' | '/achievements' | '/shop' | '/game/$id'
+  to: '/' | '/achievements' | '/casino' | '/shop' | '/game/$id'
+  id: '__root__' | '/' | '/achievements' | '/casino' | '/shop' | '/game/$id'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AchievementsRoute: typeof AchievementsRoute
+  CasinoRoute: typeof CasinoRoute
   ShopRoute: typeof ShopRoute
   GameIdRoute: typeof GameIdRoute
 }
@@ -76,6 +86,13 @@ declare module '@tanstack/react-router' {
       path: '/shop'
       fullPath: '/shop'
       preLoaderRoute: typeof ShopRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/casino': {
+      id: '/casino'
+      path: '/casino'
+      fullPath: '/casino'
+      preLoaderRoute: typeof CasinoRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/achievements': {
@@ -105,6 +122,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AchievementsRoute: AchievementsRoute,
+  CasinoRoute: CasinoRoute,
   ShopRoute: ShopRoute,
   GameIdRoute: GameIdRoute,
 }
