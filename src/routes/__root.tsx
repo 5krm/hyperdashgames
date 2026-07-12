@@ -81,14 +81,18 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
+      { title: "HyperDash — Premium Web Game Hub" },
+      { name: "description", content: "Play 100+ instant arcade games. Earn coins, unlock trophies, and customize your loadout on HyperDash." },
       { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { property: "og:title", content: "HyperDash — Premium Web Game Hub" },
+      { property: "og:description", content: "Play 100+ instant arcade games. Earn coins, unlock trophies, and customize your loadout on HyperDash." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:title", content: "HyperDash — Premium Web Game Hub" },
+      { name: "twitter:description", content: "Play 100+ instant arcade games. Earn coins, unlock trophies, and customize your loadout on HyperDash." },
+      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/7da05809-c998-4552-b65e-c13802b75ea5" },
+      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/7da05809-c998-4552-b65e-c13802b75ea5" },
     ],
     links: [
       {
